@@ -4,7 +4,7 @@ import Poster from '../poster/poster';
 class Card extends Component {
   render() {
     return (
-      <div class="card">
+      <div className="card">
         <h2> With A Card</h2>
         <Poster />
       </div>
