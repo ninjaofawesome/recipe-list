@@ -4,3 +4,15 @@
  * foundation.zurb.com
  * Licensed under MIT Open Source
  */
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-scrolling: touch;
+  overflow-x: hidden; }
+
+body {
+  color: #000;
+  background-color: #fff;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 16px; }

@@ -3,9 +3,11 @@
 @import 'node_modules/foundation-sites/scss/foundation.scss';
 
 // base
+@import 'styles/base/type';
 @import 'styles/base/variables';
 @import 'styles/base/mixins';
-@import 'styles/base/type';
+@import 'styles/base/structure';
+
 
 // global
 @import 'styles/global/buttons';

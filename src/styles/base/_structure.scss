@@ -1,0 +1,13 @@
+html,
+body {
+  @include font-smooth();
+  overflow-scrolling: touch;
+  overflow-x: hidden;
+}
+
+body {
+  color: $black;
+  background-color: $white;
+  font-family: $georgia;
+  font-size: 16px;
+}
