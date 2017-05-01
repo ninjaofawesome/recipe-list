@@ -5,7 +5,7 @@ import List from '../src/components/list/list';
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="recipe-list">
         <Nav />
         <List />
       </div>
