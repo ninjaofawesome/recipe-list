@@ -1,0 +1,18 @@
+// foundation files
+@import 'node_modules/foundation-sites/scss/global';
+@import 'node_modules/foundation-sites/scss/foundation.scss';
+
+// base
+@import 'styles/base/variables';
+@import 'styles/base/mixins';
+@import 'styles/base/type';
+
+// global
+@import 'styles/global/buttons';
+@import 'styles/global/images';
+
+// components
+@import 'components/nav/nav';
+@import 'components/list/list';
+@import 'components/poster/poster';
+@import 'components/card/card';
