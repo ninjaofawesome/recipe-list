@@ -51,15 +51,18 @@ class List extends Component {
 
     return (
       <div className="recipe-list__list">
-        <h2 className="recipe-list__list-title">Reading List</h2>
-        {cardData.map((cardInfo, index) => {
-          return (
-            <Card
-              key={`card-${index}`}
-              data={cardInfo}
-            />
-          );
-        })}
+        <div className="recipe-list__container">
+          <h2 className="recipe-list__list-title">Reading List</h2>
+          <p className="recipe-list__list-caption">Read better, cook better, eat better.</p>
+          {cardData.map((cardInfo, index) => {
+            return (
+              <Card
+                key={`card-${index}`}
+                data={cardInfo}
+              />
+            );
+          })}
+        </div>
       </div>
     );
   }

@@ -19,3 +19,12 @@
   line-height: rem-calc(15);
   font-weight: 400;
 }
+
+@mixin captionType($color: $charcoal) {
+  color: $color;
+  font-family: $georgia;
+  font-size: rem-calc(11);
+  text-transform: uppercase;
+  line-height: rem-calc(15);
+  font-weight: 400;
+}

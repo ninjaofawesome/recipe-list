@@ -1,0 +1,26 @@
+.recipe-list {
+
+  &__list {
+    @include flex-grid-row();
+  }
+
+  &__container {
+    @include flex-grid-column(8);
+    display: block;
+    margin: 0 auto;
+  }
+
+  &__list-title {
+    @include Headline($red);
+
+    font-size: rem-calc(42);
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  &__list-caption {
+    @include captionType($black);
+
+    text-align: center;
+  }
+}
