@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
+import moment from 'moment';
 import Card from '../card/card';
 // import WelcomeCardState from './welcome_card.json';
 
@@ -33,12 +34,13 @@ class List extends Component {
   render() {
     const cardData = this.state.recipeCard.map((item, index) => {
       const foodSection = item.section === 'Food';
+      const published = moment(item.published_date).format("dddd, MMMM Do YYYY");
       const cardObj = {
         key: index,
         section: foodSection,
         title: item.title,
         byline: item.byline,
-        published_date: item.published_date,
+        published_date: published,
         url: item.url,
         multimedia: item.multimedia
       }
