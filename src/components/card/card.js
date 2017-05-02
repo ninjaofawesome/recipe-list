@@ -14,8 +14,6 @@ class Card extends Component {
       multimedia
     } = this.props.data;
 
-    console.log(this.props.data);
-
     if (section === false) {
       console.log('this is false', section);
     }

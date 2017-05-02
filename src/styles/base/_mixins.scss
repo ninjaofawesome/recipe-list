@@ -2,3 +2,20 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+@mixin Headline($color: $black) {
+  color: $color;
+  font-family: $chunkfive;
+  font-size: rem-calc(31);
+  line-height: rem-calc(34);
+  font-weight: 800;
+}
+
+@mixin navType($color: $charcoal) {
+  color: $color;
+  font-family: $arial;
+  font-size: rem-calc(11);
+  text-transform: uppercase;
+  line-height: rem-calc(15);
+  font-weight: 400;
+}

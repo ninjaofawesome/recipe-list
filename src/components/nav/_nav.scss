@@ -1,0 +1,63 @@
+.recipe-list {
+
+  &__navbar {
+    height: rem-calc(65);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    border-bottom: 1px solid $border-gray;
+    position: relative;
+  }
+
+  &__navbar-title {
+    @include Headline();
+    padding: 0;
+    margin: rem-calc(17 0 8 5);
+    display: inline-block;
+  }
+
+  &__navbar-menu-button {
+    position: absolute;
+    right: 0;
+    top: rem-calc(16);
+    display: inline-block;
+  }
+
+  &__navbar-list {
+    position: absolute;
+    right: 0;
+    top: rem-calc(65);
+    display: inline-block;
+    list-style-type: none;
+    width: rem-calc(150);
+    border: rem-calc(1) solid $border-gray;
+    margin: 0;
+    padding-left: 0;
+    display: none;
+  }
+
+  &__navbar-list-item {
+    @include navType();
+    padding: rem-calc(20 0);
+    text-align: center;
+
+    &:after {
+      content: "";
+      display: block;
+      border-bottom: rem-calc(1) solid $border-gray;
+      padding: rem-calc(20 10 0 10);
+    }
+
+    &:last-of-type {
+      padding: 0;
+
+      &:after {
+        content: "";
+        display: block;
+        border-bottom: 0;
+      }
+    }
+  }
+}
