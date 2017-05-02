@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
 import Card from '../card/card';
+// import WelcomeCardState from './welcome_card.json';
 
 class List extends Component {
 
   constructor(props) {
     super(props);
     this.recipeCardList = this.recipeCardList.bind(this);
-    this.state = {recipeCard: []};
+    this.state = {recipeCard:[]};
   }
 
   componentDidMount() {
@@ -30,7 +31,6 @@ class List extends Component {
   }
 
   render() {
-
     const cardData = this.state.recipeCard.map((item, index) => {
       const foodSection = item.section === 'Food';
       const cardObj = {
@@ -48,9 +48,14 @@ class List extends Component {
     return (
       <div className="recipe-list__list">
         <h2> Yo List</h2>
-        <Card
-          data={cardData}
-        />
+        {cardData.map((cardInfo, index) => {
+          return (
+            <Card
+              key={`card-${index}`}
+              data={cardInfo}
+            />
+          );
+        })}
       </div>
     );
   }

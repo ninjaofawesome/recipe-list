@@ -1,21 +1,27 @@
 import React, { Component, PropTypes } from 'react';
 import Poster from '../poster/poster';
 
+
 class Card extends Component {
 
   render() {
+
+    if (!this.props.data) {
+      return null;
+    }
+
     const {
       key,
-      section,
+      url,
+      published_date,
       title,
       byline,
-      published_date,
-      url,
-      multimedia
-    } = this.props.data;
+      multimedia,
+      section } = this.props.data;
 
     if (section === false) {
       console.log('this is false', section);
+      return null;
     }
 
     return (
@@ -28,11 +34,12 @@ class Card extends Component {
         </a>
       </div>
     );
+
   }
 }
 
 Card.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.shape({
+  data: PropTypes.shape({
     key: PropTypes.number,
     section: PropTypes.bool,
     title: PropTypes.string,
@@ -40,7 +47,7 @@ Card.propTypes = {
     published_date: PropTypes.string,
     url: PropTypes.string,
     multimedia: PropTypes.array
-  }))
+  })
 }
 
 export default Card;

@@ -9,7 +9,7 @@ class Poster extends Component {
 }
 
 Poster.propTypes = {
-  image: PropTypes.shape({})
+  image: PropTypes.arrayOf(PropTypes.shape({}))
 }
 
 export default Poster;
