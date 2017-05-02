@@ -26,9 +26,6 @@ class Card extends Component {
     return (
       <div className="recipe-card__card" key={key}>
         <a href={url} className="recipe-card__card-link">
-          <p>{published_date}</p>
-          <h2>{title}</h2>
-          <p>{byline}</p>
           {multimedia.map((photo, index) => {
             const photoData = {
               url: photo.url,
@@ -43,6 +40,11 @@ class Card extends Component {
               />
             );
           })}
+          <div className="recipe-card__text-area">
+            <p className="recipe-card__card-eyebrow">{published_date}</p>
+            <h2 className="recipe-card__card-title">{title}</h2>
+            <p className="recipe-card__card-byline">{byline}</p>
+          </div>
         </a>
       </div>
     );

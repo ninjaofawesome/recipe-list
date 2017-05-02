@@ -1,0 +1,47 @@
+.recipe-card {
+
+  &__card {
+
+    position: relative;
+    display: block;
+    margin-top: rem-calc(20);
+    vertical-align: text-top;
+
+    &:after {
+      content: "";
+      display: block;
+      border-bottom: rem-calc(1) solid $border-gray;
+      margin-left: rem-calc(10);
+      margin-right: rem-calc(10);
+      margin-top: rem-calc(20);
+    }
+  }
+
+  &__card-link {
+    text-decoration: none;
+  }
+
+  &__text-area {
+    @include flex-grid-column(8);
+
+    position: absolute;
+    right: 0;
+  }
+
+  &__card-eyebrow {
+    @include captionType();
+    margin: rem-calc(18 0 0 0);
+
+  }
+
+  &__card-title {
+    @include Title();
+    margin: 0;
+
+  }
+
+  &__card-byline {
+    @include Byline();
+    margin: 0;
+  }
+}

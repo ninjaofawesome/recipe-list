@@ -9,7 +9,7 @@ class Poster extends Component {
 
     return (
       <div className="recipe-box__image-container">
-        <img src={image} alt={alt} />
+        <img className="recipe-box__image" src={image} alt={alt} />
       </div>
     );
   }
