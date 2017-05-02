@@ -36,6 +36,10 @@ body {
   width: 9.5rem;
   height: 3.125rem; }
 
+.recipe-list__navbar-menu-button:active, .recipe-list__navbar-menu-button:focus, .recipe-list__navbar-menu-button:hover {
+  text-decoration: none;
+  outline: 0; }
+
 .recipe-list__navbar {
   height: 4.0625rem;
   width: 100%;
@@ -73,6 +77,9 @@ body {
   margin: 0;
   padding-left: 0;
   display: none; }
+
+.recipe-list__navbar-list--visible {
+  display: block; }
 
 .recipe-list__navbar-list-item {
   color: #666;

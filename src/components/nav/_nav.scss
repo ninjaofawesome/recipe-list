@@ -36,6 +36,10 @@
     margin: 0;
     padding-left: 0;
     display: none;
+
+    &--visible {
+      display: block;
+    }
   }
 
   &__navbar-list-item {

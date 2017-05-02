@@ -10,5 +10,11 @@
     width: rem-calc(152);
     height: rem-calc(50);
 
+    &:active,
+    &:focus,
+    &:hover {
+      text-decoration: none;
+      outline: 0;
+    }
   }
 }
