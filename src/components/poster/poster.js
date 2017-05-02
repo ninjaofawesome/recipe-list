@@ -1,15 +1,23 @@
 import React, { Component, PropTypes } from 'react';
 
 class Poster extends Component {
+
   render() {
+
+    const image = this.props.image.url;
+    const alt = this.props.image.alt;
+
     return (
-      <h2>Poster!</h2>
+      <div className="recipe-box__image-container">
+        <img src={image} alt={alt} />
+      </div>
     );
   }
 }
 
 Poster.propTypes = {
-  image: PropTypes.arrayOf(PropTypes.shape({}))
+  key: PropTypes.string,
+  image: PropTypes.shape({})
 }
 
 export default Poster;

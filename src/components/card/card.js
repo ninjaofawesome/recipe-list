@@ -20,7 +20,6 @@ class Card extends Component {
       section } = this.props.data;
 
     if (section === false) {
-      console.log('this is false', section);
       return null;
     }
 
@@ -30,7 +29,20 @@ class Card extends Component {
           <p>{published_date}</p>
           <h2>{title}</h2>
           <p>{byline}</p>
-          <Poster image={multimedia} />
+          {multimedia.map((photo, index) => {
+            const photoData = {
+              url: photo.url,
+              alt: photo.caption,
+              height: photo.height,
+              width: photo.width
+            }
+            return (
+              <Poster
+                key={`poster-${index}`}
+                image={photoData}
+              />
+            );
+          })}
         </a>
       </div>
     );
@@ -46,7 +58,7 @@ Card.propTypes = {
     byline: PropTypes.string,
     published_date: PropTypes.string,
     url: PropTypes.string,
-    multimedia: PropTypes.array
+    multimedia: PropTypes.shape({})
   })
 }
 

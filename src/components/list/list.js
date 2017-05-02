@@ -35,6 +35,8 @@ class List extends Component {
     const cardData = this.state.recipeCard.map((item, index) => {
       const foodSection = item.section === 'Food';
       const published = moment(item.published_date).format("dddd, MMMM Do YYYY");
+      const image = item.multimedia.slice(2,3);
+
       const cardObj = {
         key: index,
         section: foodSection,
@@ -42,7 +44,7 @@ class List extends Component {
         byline: item.byline,
         published_date: published,
         url: item.url,
-        multimedia: item.multimedia
+        multimedia: image
       }
       return cardObj;
     });
