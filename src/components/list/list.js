@@ -49,7 +49,7 @@ class List extends Component {
 
     return (
       <div className="recipe-list__list">
-        <h2> Yo List</h2>
+        <h2 className="recipe-list__list-title">Reading List</h2>
         {cardData.map((cardInfo, index) => {
           return (
             <Card
