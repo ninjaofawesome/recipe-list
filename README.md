@@ -16,3 +16,4 @@ Not yet!
 1. Create a favoriting system.
 2. Work on creating a sort by date, favorites.
 3. Really nail that responsiveness.
+4. Push this live!
