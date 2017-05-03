@@ -29,9 +29,39 @@
   }
 }
 
+@include breakpoint(large up) {
+
+  .recipe-list {
+
+    &__list-caption {
+
+      &:after {
+        content: "";
+        display: block;
+        border-top: rem-calc(7) solid $black;
+        margin-bottom: rem-calc(20);
+        margin-top: rem-calc(10);
+      }
+    }
+  }
+}
+
 @include breakpoint(medium down) {
 
   .recipe-list {
+
+    &__list-title {
+
+      margin-top: rem-calc(20);
+
+      &:after {
+        content: "";
+        display: block;
+        border-top: rem-calc(7) solid $black;
+        margin-bottom: rem-calc(20);
+        margin-top: rem-calc(10);
+      }
+    }
 
     &__list-caption {
       display: none;

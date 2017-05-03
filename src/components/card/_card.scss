@@ -1,30 +1,18 @@
 .recipe-card {
 
   &__card {
-
     position: relative;
     display: block;
-    margin-top: rem-calc(20);
+    margin-bottom: rem-calc(20);
     vertical-align: text-top;
-
-    &:first-of-type {
-
-      &:before {
-        content: "";
-        display: block;
-        border-top: rem-calc(7) solid $black;
-        margin-top: rem-calc(10);
-        margin-bottom: rem-calc(20);
-      }
-    }
 
     &:after {
       content: "";
       display: block;
-      border-bottom: rem-calc(1) solid $border-gray;
-      margin-left: rem-calc(10);
-      margin-right: rem-calc(10);
+      border-top: rem-calc(1) solid $border-gray;
       margin-top: rem-calc(20);
+      margin-left: rem-calc(5);
+      margin-right: rem-calc(5);
     }
   }
 
@@ -43,73 +31,48 @@
   &__card-eyebrow {
     @include captionType();
     margin: 0;
-
   }
 
   &__card-title {
     @include Title();
-    margin: 0;
 
+    margin: 0;
   }
 
   &__card-byline {
     @include Byline();
+
     margin-top: rem-calc(10);
   }
 }
 
-@include breakpoint(medium only) {
-
-  @include breakpoint(landscape) {
-
-    .recipe-card {
-
-      &__card {
-
-        position: relative;
-        display: block;
-        margin-top: rem-calc(20);
-        vertical-align: text-top;
-
-        &:first-of-type {
-          margin-top: 0;
-
-          &:before {
-            content: "";
-            display: block;
-            border-top: rem-calc(7) solid $black;
-            margin-top: rem-calc(15);
-            margin-bottom: rem-calc(20);
-          }
-        }
-      }
-    }
-
-  }
-}
 
 @include breakpoint(small only) {
 
   .recipe-card {
 
-    &__card {
+    &__text-area {
+      @include flex-grid-column(8);
 
-      position: relative;
-      display: block;
-      margin-top: rem-calc(20);
-      vertical-align: text-top;
+      position: absolute;
+      left: rem-calc(100);
+      top: rem-calc(-2);
+    }
 
-      &:first-of-type {
-        margin-top: 0;
+    &__card-eyebrow {
+      @include captionTypeMobile();
+    }
 
-        &:before {
-          content: "";
-          display: block;
-          border-top: rem-calc(7) solid $black;
-          margin-top: rem-calc(15);
-          margin-bottom: rem-calc(20);
-        }
-      }
+    &__card-title {
+      @include TitleMobile();
+
+      margin: 0;
+    }
+
+    &__card-byline {
+      @include BylineMobile();
+
+      margin-top: rem-calc(5);
     }
   }
 }

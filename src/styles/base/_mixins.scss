@@ -19,6 +19,14 @@
   font-weight: 400;
 }
 
+@mixin TitleMobile($color: $black) {
+  color: $color;
+  font-family: $georgia;
+  font-size: rem-calc(16);
+  line-height: rem-calc(16);
+  font-weight: 300;
+}
+
 @mixin navType($color: $charcoal) {
   color: $color;
   font-family: $arial;
@@ -38,10 +46,29 @@
   font-weight: 400;
 }
 
+ @mixin captionTypeMobile($color: $charcoal) {
+   color: $color;
+   font-family: $georgia;
+   font-size: rem-calc(11);
+   text-transform: uppercase;
+   line-height: rem-calc(13);
+   letter-spacing: rem-calc(1.3);
+   font-weight: 400;
+ }
+
+
 @mixin Byline($color: $black) {
   color: $color;
   font-family: $georgia;
   font-size: rem-calc(14);
-  line-height: rem-calc(16);
+  line-height: rem-calc(14);
   font-weight: 400;
+}
+
+@mixin BylineMobile($color: $black) {
+  color: $color;
+  font-family: $georgia;
+  font-size: rem-calc(12);
+  line-height: rem-calc(16.8);
+  font-weight: 300;
 }

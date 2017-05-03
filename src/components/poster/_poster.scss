@@ -3,4 +3,22 @@
   &__image-container {
     width: rem-calc(190);
   }
+
+  &__image {
+    width: rem-calc(190);
+  }
+}
+
+@include breakpoint (small only) {
+
+  .recipe-card {
+
+    &__image-container {
+      width: rem-calc(100);
+    }
+
+    &__image {
+      width: rem-calc(100);
+    }
+  }
 }

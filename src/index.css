@@ -165,7 +165,23 @@ body {
   text-align: center;
   margin-top: 1rem; }
 
+@media screen and (min-width: 64em) {
+  .recipe-list__list-caption:after {
+    content: "";
+    display: block;
+    border-top: 0.4375rem solid #000;
+    margin-bottom: 1.25rem;
+    margin-top: 0.625rem; } }
+
 @media screen and (max-width: 63.9375em) {
+  .recipe-list__list-title {
+    margin-top: 1.25rem; }
+  .recipe-list__list-title:after {
+    content: "";
+    display: block;
+    border-top: 0.4375rem solid #000;
+    margin-bottom: 1.25rem;
+    margin-top: 0.625rem; }
   .recipe-list__list-caption {
     display: none; } }
 
@@ -203,23 +219,16 @@ body {
 .recipe-card__card {
   position: relative;
   display: block;
-  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
   vertical-align: text-top; }
-
-.recipe-card__card:first-of-type:before {
-  content: "";
-  display: block;
-  border-top: 0.4375rem solid #000;
-  margin-top: 0.625rem;
-  margin-bottom: 1.25rem; }
 
 .recipe-card__card:after {
   content: "";
   display: block;
-  border-bottom: 0.0625rem solid #ccc;
-  margin-left: 0.625rem;
-  margin-right: 0.625rem;
-  margin-top: 1.25rem; }
+  border-top: 0.0625rem solid #ccc;
+  margin-top: 1.25rem;
+  margin-left: 0.3125rem;
+  margin-right: 0.3125rem; }
 
 .recipe-card__card-link {
   text-decoration: none; }
@@ -261,39 +270,58 @@ body {
   color: #000;
   font-family: Georgia, Times, "Times New Roman", serif;
   font-size: 0.875rem;
-  line-height: 1rem;
+  line-height: 0.875rem;
   font-weight: 400;
   margin-top: 0.625rem; }
 
-@media screen and (min-width: 40em) and (max-width: 63.9375em) and (orientation: landscape) {
-  .recipe-card__card {
-    position: relative;
-    display: block;
-    margin-top: 1.25rem;
-    vertical-align: text-top; }
-  .recipe-card__card:first-of-type {
-    margin-top: 0; }
-  .recipe-card__card:first-of-type:before {
-    content: "";
-    display: block;
-    border-top: 0.4375rem solid #000;
-    margin-top: 0.9375rem;
-    margin-bottom: 1.25rem; } }
+@media screen and (max-width: 39.9375em) {
+  .recipe-card__text-area {
+    flex: 0 0 66.66667%;
+    max-width: 66.66667%;
+    padding-right: 0.625rem;
+    padding-left: 0.625rem;
+    max-width: 66.66667%;
+    position: absolute;
+    left: 6.25rem;
+    top: -0.125rem; } }
+
+@media screen and (max-width: 39.9375em) and (min-width: 40em) {
+  .recipe-card__text-area {
+    padding-right: 0.9375rem;
+    padding-left: 0.9375rem; } }
 
 @media screen and (max-width: 39.9375em) {
-  .recipe-card__card {
-    position: relative;
-    display: block;
-    margin-top: 1.25rem;
-    vertical-align: text-top; }
-  .recipe-card__card:first-of-type {
-    margin-top: 0; }
-  .recipe-card__card:first-of-type:before {
-    content: "";
-    display: block;
-    border-top: 0.4375rem solid #000;
-    margin-top: 0.9375rem;
-    margin-bottom: 1.25rem; } }
+  .recipe-card__card-eyebrow {
+    color: #666;
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    line-height: 0.8125rem;
+    letter-spacing: 0.08125rem;
+    font-weight: 400; }
+  .recipe-card__card-title {
+    color: #000;
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 1rem;
+    line-height: 1rem;
+    font-weight: 300;
+    margin: 0; }
+  .recipe-card__card-byline {
+    color: #000;
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 0.75rem;
+    line-height: 1.05rem;
+    font-weight: 300;
+    margin-top: 0.3125rem; } }
 
 .recipe-card__image-container {
   width: 11.875rem; }
+
+.recipe-card__image {
+  width: 11.875rem; }
+
+@media screen and (max-width: 39.9375em) {
+  .recipe-card__image-container {
+    width: 6.25rem; }
+  .recipe-card__image {
+    width: 6.25rem; } }
