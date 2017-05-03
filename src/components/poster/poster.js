@@ -16,7 +16,6 @@ class Poster extends Component {
 }
 
 Poster.propTypes = {
-  key: PropTypes.string,
   image: PropTypes.shape({})
 }
 

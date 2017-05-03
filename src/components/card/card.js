@@ -60,7 +60,7 @@ Card.propTypes = {
     byline: PropTypes.string,
     published_date: PropTypes.string,
     url: PropTypes.string,
-    multimedia: PropTypes.shape({})
+    multimedia: PropTypes.arrayOf(PropTypes.shape({}))
   })
 }
 
