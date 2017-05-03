@@ -8,8 +8,8 @@ class Poster extends Component {
     const alt = this.props.image.alt;
 
     return (
-      <div className="recipe-box__image-container">
-        <img className="recipe-box__image" src={image} alt={alt} />
+      <div className="recipe-card__image-container">
+        <img className="recipe-card__image" src={image} alt={alt} />
       </div>
     );
   }

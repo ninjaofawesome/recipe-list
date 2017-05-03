@@ -1,11 +1,6 @@
 .recipe-card {
 
   &__image-container {
-    @include flex-grid-column(3);
-    border: 1px solid red;
-  }
-
-  &__image {
-    border: 1px solid green;
+    width: rem-calc(190);
   }
 }
