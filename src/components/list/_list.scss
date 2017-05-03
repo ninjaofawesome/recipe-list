@@ -2,6 +2,7 @@
 
   &__list {
     @include flex-grid-row();
+    margin-top: rem-calc(65);
   }
 
   &__container {
@@ -22,5 +23,6 @@
     @include captionType($black);
 
     text-align: center;
+    border-bottom: rem-calc(1) solid $black;
   }
 }

@@ -46,8 +46,6 @@ class List extends Component {
         })
       }
 
-      console.log(image);
-
       const cardObj = {
         key: index,
         section: foodSection,

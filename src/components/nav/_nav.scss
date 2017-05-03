@@ -3,12 +3,12 @@
   &__navbar {
     height: rem-calc(65);
     width: 100%;
-    position: fixed;
     top: 0;
     left: 0;
     z-index: 10;
     border-bottom: 1px solid $border-gray;
     position: relative;
+    background-color: $white;
   }
 
   &__navbar-title {

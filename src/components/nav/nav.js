@@ -11,7 +11,14 @@ class Nav extends Component {
   }
 
   componentDidMount() {
+    this.setCSS();
     this.toggleMenu();
+  }
+
+  setCSS() {
+    const nav = document.querySelector('.recipe-list__navbar');
+
+    nav.style.position = "fixed";
   }
 
   toggleMenu() {

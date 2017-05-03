@@ -43,12 +43,12 @@ body {
 .recipe-list__navbar {
   height: 4.0625rem;
   width: 100%;
-  position: fixed;
   top: 0;
   left: 0;
   z-index: 10;
   border-bottom: 1px solid #ccc;
-  position: relative; }
+  position: relative;
+  background-color: #fff; }
 
 .recipe-list__navbar-title {
   color: #000;
@@ -110,7 +110,8 @@ body {
   margin-right: auto;
   margin-left: auto;
   display: flex;
-  flex-flow: row wrap; }
+  flex-flow: row wrap;
+  margin-top: 4.0625rem; }
 
 .recipe-list__container {
   flex: 0 0 50%;
@@ -143,7 +144,8 @@ body {
   text-transform: uppercase;
   line-height: 0.9375rem;
   font-weight: 400;
-  text-align: center; }
+  text-align: center;
+  border-bottom: 0.0625rem solid #000; }
 
 .recipe-card__card {
   position: relative;
