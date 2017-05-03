@@ -14,8 +14,9 @@
   &__navbar-title {
     @include Headline();
     padding: 0;
-    margin: rem-calc(17 0 8 5);
-    display: inline-block;
+    margin: rem-calc(19.5 0 8 5);
+    display: block;
+    text-align: left;
   }
 
   &__navbar-menu-button {
@@ -23,6 +24,8 @@
     right: 0;
     top: rem-calc(16);
     display: inline-block;
+    width: rem-calc(152);
+    height: rem-calc(50);
   }
 
   &__navbar-list {
@@ -35,6 +38,7 @@
     border: rem-calc(1) solid $border-gray;
     margin: 0;
     padding-left: 0;
+    background-color: $white;
     display: none;
 
     &--visible {
@@ -62,6 +66,30 @@
         display: block;
         border-bottom: 0;
       }
+    }
+  }
+}
+
+@include breakpoint(medium down) {
+    .recipe-list {
+
+      &__navbar-title {
+        text-align: center;
+      }
+    }
+}
+
+@include breakpoint(small only) {
+
+  .recipe-list {
+
+    &__navbar-menu-button {
+      position: absolute;
+      right: 0;
+      top: rem-calc(16);
+      display: inline-block;
+      width: rem-calc(65);
+      height: rem-calc(50);
     }
   }
 }

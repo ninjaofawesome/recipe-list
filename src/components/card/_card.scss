@@ -7,6 +7,17 @@
     margin-top: rem-calc(20);
     vertical-align: text-top;
 
+    &:first-of-type {
+
+      &:before {
+        content: "";
+        display: block;
+        border-top: rem-calc(7) solid $black;
+        margin-top: rem-calc(10);
+        margin-bottom: rem-calc(20);
+      }
+    }
+
     &:after {
       content: "";
       display: block;
@@ -44,5 +55,61 @@
   &__card-byline {
     @include Byline();
     margin-top: rem-calc(10);
+  }
+}
+
+@include breakpoint(medium only) {
+
+  @include breakpoint(landscape) {
+
+    .recipe-card {
+
+      &__card {
+
+        position: relative;
+        display: block;
+        margin-top: rem-calc(20);
+        vertical-align: text-top;
+
+        &:first-of-type {
+          margin-top: 0;
+
+          &:before {
+            content: "";
+            display: block;
+            border-top: rem-calc(7) solid $black;
+            margin-top: rem-calc(15);
+            margin-bottom: rem-calc(20);
+          }
+        }
+      }
+    }
+
+  }
+}
+
+@include breakpoint(small only) {
+
+  .recipe-card {
+
+    &__card {
+
+      position: relative;
+      display: block;
+      margin-top: rem-calc(20);
+      vertical-align: text-top;
+
+      &:first-of-type {
+        margin-top: 0;
+
+        &:before {
+          content: "";
+          display: block;
+          border-top: rem-calc(7) solid $black;
+          margin-top: rem-calc(15);
+          margin-bottom: rem-calc(20);
+        }
+      }
+    }
   }
 }

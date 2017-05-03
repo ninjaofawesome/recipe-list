@@ -26,14 +26,18 @@
 
     text-align: center;
     margin-top: rem-calc(16);
+  }
+}
 
-    &:after {
-      content: "";
-      display: block;
-      border-bottom: rem-calc(7) solid $black;
-      margin-top: rem-calc(10);
+@include breakpoint(medium down) {
+
+  .recipe-list {
+
+    &__list-caption {
+      display: none;
     }
   }
+
 }
 
 @include breakpoint(medium only) {
@@ -53,7 +57,6 @@
         @include flex-grid-column(12, 0);
       }
     }
-
   }
 }
 
@@ -63,6 +66,10 @@
 
     &__container {
       @include flex-grid-column(12, 0);
+    }
+
+    &__list-caption {
+      display: none;
     }
   }
 }
