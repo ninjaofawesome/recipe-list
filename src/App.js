@@ -12,21 +12,35 @@ class App extends Component {
   }
 
   componentDidMount() {
-    let url = "https://api.nytimes.com/svc/topstories/v2/food.json";
-    url += '?' + $.param({
-      'api-key': "4c0279d4d0ec494eb035ac5281200c59"
+
+    function getData(callback) {
+      let url = "https://api.nytimes.com/svc/topstories/v2/food.json";
+      url += '?' + $.param({
+        'api-key': "4c0279d4d0ec494eb035ac5281200c59"
+      });
+      return $.ajax({
+        url: url,
+        method: 'GET',
+      }).done(function(result) {
+        const data = result.results;
+        callback(data);
+      }).fail(function(err) {
+        throw err;
+      });
+    }
+
+    const returnData = getData(function(data) {
+      //Y you no return data??!
+      return data;
     });
-    return $.ajax({
-      url: url,
-      method: 'GET',
-    }).done(function(result) {
-      this.setState({ recipeCard: result.results});
-    }.bind(this)).fail(function(err) {
-      throw err;
-    });
+
+    this.setState({ recipeCard: returnData })
   }
 
+
   render() {
+
+    console.log(this.state)
 
     const cardData = this.state.recipeCard.map((item, index) => {
       const foodSection = item.section === 'Food';
@@ -57,7 +71,7 @@ class App extends Component {
 
     return (
       <div className="recipe-list">
-        <Nav />
+        <Nav cardInfo={cardData} />
         <List cardInfo={cardData} />
       </div>
     );
