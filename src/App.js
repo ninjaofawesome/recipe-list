@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Nav from '../src/components/nav/nav';
 import List from '../src/components/list/list';
+import axios from 'axios';
 import $ from 'jquery';
 import moment from 'moment';
 
@@ -8,40 +9,26 @@ class App extends Component {
 
   constructor() {
     super();
+
+    this.renderCardData = this.renderCardData.bind(this);
     this.state = {recipeCard:[]};
   }
 
-  componentDidMount() {
+  componentWillMount() {
 
-    function getData(callback) {
-      let url = "https://api.nytimes.com/svc/topstories/v2/food.json";
-      url += '?' + $.param({
-        'api-key': "4c0279d4d0ec494eb035ac5281200c59"
-      });
-      return $.ajax({
-        url: url,
-        method: 'GET',
-      }).done(function(result) {
-        const data = result.results;
-        callback(data);
-      }).fail(function(err) {
-        throw err;
-      });
-    }
-
-    const returnData = getData(function(data) {
-      //Y you no return data??!
-      return data;
+    let url = "https://api.nytimes.com/svc/topstories/v2/food.json";
+    url += '?' + $.param({
+      'api-key': "4c0279d4d0ec494eb035ac5281200c59"
     });
 
-    this.setState({ recipeCard: returnData })
+    axios.get(url)
+      .then(res => {
+        const cards = res.data.results;
+        this.setState({recipeCard: cards})
+      });
   }
 
-
-  render() {
-
-    console.log(this.state)
-
+  renderCardData(cardState) {
     const cardData = this.state.recipeCard.map((item, index) => {
       const foodSection = item.section === 'Food';
       const published = moment(item.published_date).format("dddd, MMMM Do YYYY");
@@ -68,11 +55,18 @@ class App extends Component {
       return cardObj;
     });
 
+    return cardData;
+
+  }
+
+  render() {
+    const cardState = this.state.recipeCard;
+    const cardUpdate = this.renderCardData(cardState);
 
     return (
       <div className="recipe-list">
-        <Nav cardInfo={cardData} />
-        <List cardInfo={cardData} />
+        <Nav cardInfo={cardUpdate} />
+        <List cardInfo={cardUpdate} />
       </div>
     );
   }
