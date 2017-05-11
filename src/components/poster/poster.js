@@ -1,11 +1,12 @@
 import React, { Component, PropTypes } from 'react';
+import { get } from 'lodash';
 
 class Poster extends Component {
 
   render() {
 
-    const image = this.props.image.url;
-    const alt = this.props.image.alt;
+    const image = get(this.props, 'image.url');
+    const alt = get(this.props, 'image.alt');
 
     return (
       <div className="recipe-card__image-container">

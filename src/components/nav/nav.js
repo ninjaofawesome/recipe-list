@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { get } from 'lodash';
 
 class Nav extends Component {
 
@@ -20,7 +21,7 @@ class Nav extends Component {
   }
 
   toggleMenu() {
-    const currentState = this.state.active;
+    const currentState = get(this.state, 'active');
     this.setState({ active: !currentState });
 
     const hiddenList = document.querySelector('.recipe-list__navbar-list');
