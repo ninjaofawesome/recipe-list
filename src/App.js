@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Nav from '../src/components/nav/nav';
 import List from '../src/components/list/list';
+import { cardFormat } from '../src/utils/card_format';
 import axios from 'axios';
 import $ from 'jquery';
 import moment from 'moment';
@@ -10,7 +11,6 @@ class App extends Component {
   constructor() {
     super();
 
-    this.renderCardData = this.renderCardData.bind(this);
     this.arrangeCards = this.arrangeCards.bind(this);
     this.favoriteCards = this.favoriteCards.bind(this);
     this.favoriteList = this.favoriteList.bind(this);
@@ -32,35 +32,6 @@ class App extends Component {
         const cards = res.data.results;
         this.setState({recipeCard: cards})
       });
-  }
-
-  renderCardData(cardState) {
-    const cardData = this.state.recipeCard.map((item, index) => {
-      const published = moment(item.published_date).format("dddd, MMMM Do YYYY");
-      const image = item.multimedia.slice(2,3);
-
-      if (image.length === 0) {
-        image.push({
-          "url" : "https://res.cloudinary.com/ninjaofawesome/image/upload/c_scale,h_127,w_190/v1493131754/hannah/projects/listicle/food-rainbow.jpg",
-          "alt" : "Placeholder Food Image",
-          "width": 190,
-          "height": 127
-        })
-      }
-
-      const cardObj = {
-        key: index,
-        title: item.title,
-        byline: item.byline,
-        published_date: published,
-        url: item.url,
-        multimedia: image
-      }
-
-      return cardObj;
-    });
-
-    return cardData;
   }
 
   arrangeCards(){
@@ -87,30 +58,8 @@ class App extends Component {
 
   favoriteList(){
     const favorites = this.state.favorites;
-    const cards = this.state.recipeCard.map((item, index) => {
-      const published = moment(item.published_date).format("dddd, MMMM Do YYYY");
-      const image = item.multimedia.slice(2,3);
-
-      if (image.length === 0) {
-        image.push({
-          "url" : "https://res.cloudinary.com/ninjaofawesome/image/upload/c_scale,h_127,w_190/v1493131754/hannah/projects/listicle/food-rainbow.jpg",
-          "alt" : "Placeholder Food Image",
-          "width": 190,
-          "height": 127
-        })
-      }
-
-      const cardObj = {
-        key: index,
-        title: item.title,
-        byline: item.byline,
-        published_date: published,
-        url: item.url,
-        multimedia: image
-      }
-
-      return cardObj;
-    });
+    const cardState = this.state.recipeCard;
+    const cards = cardFormat(cardState);
 
     const onlyInA = cards.filter(function(current){
         return favorites.filter(function(current_b){
@@ -126,15 +75,13 @@ class App extends Component {
 
     const result = onlyInA.concat(onlyInB);
     const favoriteState = favorites.concat(result);
-    console.log(favoriteState)
+    console.log("favorite State",favoriteState)
     this.setState({ recipeCard: favoriteState });
   }
 
   render() {
     const cardState = this.state.recipeCard;
-    const cardUpdate = this.renderCardData(cardState);
-
-    console.log(this.state.recipeCard)
+    const cardUpdate = cardFormat(cardState);
 
     return (
       <div className="recipe-list">
