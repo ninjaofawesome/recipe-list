@@ -4,7 +4,6 @@ import List from '../src/components/list/list';
 import { cardFormat } from '../src/utils/card_format';
 import axios from 'axios';
 import $ from 'jquery';
-import moment from 'moment';
 
 class App extends Component {
 
@@ -69,13 +68,12 @@ class App extends Component {
 
     const onlyInB = favorites.filter(function(current){
         return cards.filter(function(current_a){
-            return current_a.key === current.key && current_a.title === current.title
+            return current_a.key === current.key && current_a.multimedia === current.multimedia
         }).length === 0
     });
 
     const result = onlyInA.concat(onlyInB);
     const favoriteState = favorites.concat(result);
-    console.log("favorite State",favoriteState)
     this.setState({ recipeCard: favoriteState });
   }
 

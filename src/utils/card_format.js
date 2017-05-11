@@ -1,8 +1,6 @@
 import moment from 'moment';
 
 export function cardFormat(data){
-  console.log('card format!', data);
-
   const cardData = data.map((item, index) => {
     const published = moment(item.published_date).format("dddd, MMMM Do YYYY");
     const image = item.multimedia.slice(2,3);
