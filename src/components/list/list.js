@@ -5,7 +5,6 @@ class List extends Component {
 
   render() {
     const cards = this.props.cardInfo;
-
     return (
       <div className="recipe-list__list">
         <div className="recipe-list__container">
@@ -13,10 +12,15 @@ class List extends Component {
           <p className="recipe-list__list-caption">Read better, cook better, eat better.</p>
           {cards.map((item, index) => {
             return(
-              <Card
-                data={item}
-                key={`card-${index}`}
-               />
+              <div className="recipe-list__card-wrapper" key={`cardWrap-${index}`}>
+                <Card
+                  data={item}
+                  key={`card-${index}`}/>
+                <button
+                  onClick={() => this.props.favoriteCards(item)}
+                  className="recipe-card__favorite-button"
+                  >&#9829;</button>
+              </div>
             );
           })}
         </div>

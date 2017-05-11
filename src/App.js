@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
 import Nav from '../src/components/nav/nav';
 import List from '../src/components/list/list';
+import { cardFormat } from '../src/utils/card_format';
 import axios from 'axios';
 import $ from 'jquery';
-import moment from 'moment';
 
 class App extends Component {
 
   constructor() {
     super();
 
-    this.renderCardData = this.renderCardData.bind(this);
     this.arrangeCards = this.arrangeCards.bind(this);
-    this.state = {recipeCard:[]};
+    this.favoriteCards = this.favoriteCards.bind(this);
+    this.favoriteList = this.favoriteList.bind(this);
+    this.state = {
+      recipeCard:[],
+      favorites: []
+    };
   }
 
   componentWillMount() {
@@ -29,36 +33,6 @@ class App extends Component {
       });
   }
 
-  renderCardData(cardState) {
-    const cardData = this.state.recipeCard.map((item, index) => {
-      const foodSection = item.section === 'Food';
-      const published = moment(item.published_date).format("dddd, MMMM Do YYYY");
-      const image = item.multimedia.slice(2,3);
-
-      if (image.length === 0) {
-        image.push({
-          "url" : "https://res.cloudinary.com/ninjaofawesome/image/upload/c_scale,h_127,w_190/v1493131754/hannah/projects/listicle/food-rainbow.jpg",
-          "alt" : "Placeholder Food Image",
-          "width": 190,
-          "height": 127
-        })
-      }
-
-      const cardObj = {
-        key: index,
-        section: foodSection,
-        title: item.title,
-        byline: item.byline,
-        published_date: published,
-        url: item.url,
-        multimedia: image
-      }
-      return cardObj;
-    });
-
-    return cardData;
-  }
-
   arrangeCards(){
     const allCards = this.state.recipeCard;
     allCards.forEach(function(element) {
@@ -71,20 +45,53 @@ class App extends Component {
       return a.parseDate - b.parseDate;
     }).reverse();
 
-    this.setState({recipeCards:allCards})
+    this.setState({ recipeCards: allCards })
+  }
+
+  favoriteCards(item){
+    const favoriteArr = this.state.favorites.slice();
+    favoriteArr.push(item);
+
+    this.setState({ favorites: favoriteArr });
+  }
+
+  favoriteList(){
+    const favorites = this.state.favorites;
+    const cardState = this.state.recipeCard;
+    const cards = cardFormat(cardState);
+
+    const onlyInA = cards.filter(function(current){
+        return favorites.filter(function(current_b){
+            return current_b.key === current.key && current_b.title === current.title
+        }).length === 0
+    });
+
+    const onlyInB = favorites.filter(function(current){
+        return cards.filter(function(current_a){
+            return current_a.key === current.key && current_a.multimedia === current.multimedia
+        }).length === 0
+    });
+
+    const result = onlyInA.concat(onlyInB);
+    const favoriteState = favorites.concat(result);
+    this.setState({ recipeCard: favoriteState });
   }
 
   render() {
     const cardState = this.state.recipeCard;
-    const cardUpdate = this.renderCardData(cardState);
+    const cardUpdate = cardFormat(cardState);
 
     return (
       <div className="recipe-list">
         <Nav
           cardInfo={cardUpdate}
           arrangeCards={this.arrangeCards}
+          favoriteCards={this.favoriteList}
         />
-        <List cardInfo={cardUpdate} />
+        <List
+          cardInfo={cardUpdate}
+          favoriteCards={this.favoriteCards}
+        />
       </div>
     );
   }

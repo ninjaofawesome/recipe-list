@@ -1,5 +1,4 @@
 .recipe-card {
-
   &__card {
     position: relative;
     display: block;
@@ -43,6 +42,29 @@
     @include Byline();
 
     margin-top: rem-calc(10);
+  }
+
+  &__favorite-button {
+    @include link-transition(500ms);
+
+    position: absolute;
+    right: rem-calc(5);
+    bottom: rem-calc(5);
+    width: rem-calc(50);
+    height: rem-calc(50);
+    font-size: rem-calc(30);
+    font-weight: 700;
+    background-color: $white;
+    border: 0;
+    color: $gray;
+    cursor: pointer;
+
+    &:active,
+    &:focus,
+    &:hover {
+      background-color: $red;
+      color: $white;
+    }
   }
 }
 

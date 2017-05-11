@@ -13,6 +13,4 @@ Recipe List was a project for me to get more comfortable working with state in R
 Not yet!
 
 ## What are the future plans for Recipe List?
-1. Create a favoriting system.
-2. Work on creating a sort by date, favorites.
-3. Push this live!
+1. Push this live!
