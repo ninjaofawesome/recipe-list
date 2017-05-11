@@ -1,74 +1,22 @@
 import React, { Component } from 'react';
-import $ from 'jquery';
-import moment from 'moment';
 import Card from '../card/card';
-// import WelcomeCardState from './welcome_card.json';
 
 class List extends Component {
 
-  constructor(props) {
-    super(props);
-    this.recipeCardList = this.recipeCardList.bind(this);
-    this.state = {recipeCard:[]};
-  }
-
-  componentDidMount() {
-    this.recipeCardList();
-  }
-
-  recipeCardList() {
-    let url = "https://api.nytimes.com/svc/topstories/v2/food.json";
-    url += '?' + $.param({
-      'api-key': "4c0279d4d0ec494eb035ac5281200c59"
-    });
-    $.ajax({
-      url: url,
-      method: 'GET',
-    }).done(function(result) {
-      this.setState({ recipeCard: result.results});
-    }.bind(this)).fail(function(err) {
-      throw err;
-    });
-  }
-
   render() {
-    const cardData = this.state.recipeCard.map((item, index) => {
-      const foodSection = item.section === 'Food';
-      const published = moment(item.published_date).format("dddd, MMMM Do YYYY");
-      const image = item.multimedia.slice(2,3);
-
-      if (image.length === 0) {
-        image.push({
-          "url" : "https://res.cloudinary.com/ninjaofawesome/image/upload/c_scale,h_127,w_190/v1493131754/hannah/projects/listicle/food-rainbow.jpg",
-          "alt" : "Placeholder Food Image",
-          "width": 190,
-          "height": 127
-        })
-      }
-
-      const cardObj = {
-        key: index,
-        section: foodSection,
-        title: item.title,
-        byline: item.byline,
-        published_date: published,
-        url: item.url,
-        multimedia: image
-      }
-      return cardObj;
-    });
+    const cards = this.props.cardInfo;
 
     return (
       <div className="recipe-list__list">
         <div className="recipe-list__container">
           <h2 className="recipe-list__list-title">Reading List</h2>
           <p className="recipe-list__list-caption">Read better, cook better, eat better.</p>
-          {cardData.map((cardInfo, index) => {
-            return (
+          {cards.map((item, index) => {
+            return(
               <Card
+                data={item}
                 key={`card-${index}`}
-                data={cardInfo}
-              />
+               />
             );
           })}
         </div>
