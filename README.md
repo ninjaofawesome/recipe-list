@@ -13,4 +13,5 @@ Recipe List was a project for me to get more comfortable working with state in R
 Not yet!
 
 ## What are the future plans for Recipe List?
-1. Push this live!
+1. Get images state to persist for favoriting.
+2. Push this live!
