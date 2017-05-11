@@ -12,7 +12,11 @@ class App extends Component {
 
     this.renderCardData = this.renderCardData.bind(this);
     this.arrangeCards = this.arrangeCards.bind(this);
-    this.state = {recipeCard:[]};
+    this.favoriteCards = this.favoriteCards.bind(this);
+    this.state = {
+      recipeCard:[],
+      favorites: []
+    };
   }
 
   componentWillMount() {
@@ -53,6 +57,7 @@ class App extends Component {
         url: item.url,
         multimedia: image
       }
+
       return cardObj;
     });
 
@@ -71,7 +76,14 @@ class App extends Component {
       return a.parseDate - b.parseDate;
     }).reverse();
 
-    this.setState({recipeCards:allCards})
+    this.setState({ recipeCards: allCards })
+  }
+
+  favoriteCards(item){
+    const favoriteArr = this.state.favorites.slice();
+    favoriteArr.push(item);
+
+    this.setState({ favorites: favoriteArr });
   }
 
   render() {
@@ -84,7 +96,10 @@ class App extends Component {
           cardInfo={cardUpdate}
           arrangeCards={this.arrangeCards}
         />
-        <List cardInfo={cardUpdate} />
+        <List
+          cardInfo={cardUpdate}
+          favoriteCards={this.favoriteCards}
+        />
       </div>
     );
   }

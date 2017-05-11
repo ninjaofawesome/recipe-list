@@ -23,6 +23,7 @@ class Card extends Component {
       return null;
     }
 
+
     return (
       <div className="recipe-card__card" key={key}>
         <a href={url} className="recipe-card__card-link">
@@ -60,7 +61,7 @@ Card.propTypes = {
     byline: PropTypes.string,
     published_date: PropTypes.string,
     url: PropTypes.string,
-    multimedia: PropTypes.arrayOf(PropTypes.shape({}))
+    multimedia: PropTypes.arrayOf(PropTypes.shape({})),
   })
 }
 
