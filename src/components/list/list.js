@@ -5,9 +5,6 @@ class List extends Component {
 
   render() {
     const cards = this.props.cardInfo;
-
-    console.log(cards);
-
     return (
       <div className="recipe-list__list">
         <div className="recipe-list__container">
