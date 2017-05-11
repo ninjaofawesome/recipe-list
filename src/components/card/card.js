@@ -16,13 +16,7 @@ class Card extends Component {
       published_date,
       title,
       byline,
-      multimedia,
-      section } = this.props.data;
-
-    if (section === false) {
-      return null;
-    }
-
+      multimedia } = this.props.data;
 
     return (
       <div className="recipe-card__card" key={key}>
@@ -56,7 +50,6 @@ class Card extends Component {
 Card.propTypes = {
   data: PropTypes.shape({
     key: PropTypes.number,
-    section: PropTypes.bool,
     title: PropTypes.string,
     byline: PropTypes.string,
     published_date: PropTypes.string,

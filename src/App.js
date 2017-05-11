@@ -35,7 +35,6 @@ class App extends Component {
 
   renderCardData(cardState) {
     const cardData = this.state.recipeCard.map((item, index) => {
-      const foodSection = item.section === 'Food';
       const published = moment(item.published_date).format("dddd, MMMM Do YYYY");
       const image = item.multimedia.slice(2,3);
 
@@ -50,7 +49,6 @@ class App extends Component {
 
       const cardObj = {
         key: index,
-        section: foodSection,
         title: item.title,
         byline: item.byline,
         published_date: published,
