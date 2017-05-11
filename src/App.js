@@ -69,7 +69,7 @@ class App extends Component {
 
     allCards.sort(function(a, b){
       return a.parseDate - b.parseDate;
-    })
+    }).reverse();
 
     this.setState({recipeCards:allCards})
   }
