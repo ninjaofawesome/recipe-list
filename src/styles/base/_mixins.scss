@@ -3,6 +3,13 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+@mixin link-transition($time) {
+  -webkit-transition: all $time ease-out;
+  -moz-transition: all $time ease-out;
+  -o-transition: all $time ease-out;
+  transition: all $time ease-out;
+}
+
 @mixin Headline($color: $black) {
   color: $color;
   font-family: $chunkfive;

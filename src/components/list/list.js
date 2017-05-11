@@ -6,6 +6,8 @@ class List extends Component {
   render() {
     const cards = this.props.cardInfo;
 
+    console.log(cards);
+
     return (
       <div className="recipe-list__list">
         <div className="recipe-list__container">
@@ -16,12 +18,11 @@ class List extends Component {
               <div className="recipe-list__card-wrapper" key={`cardWrap-${index}`}>
                 <Card
                   data={item}
-                  key={`card-${index}`}
-                 />
+                  key={`card-${index}`}/>
                 <button
                   onClick={() => this.props.favoriteCards(item)}
                   className="recipe-card__favorite-button"
-                  >Favorite</button>
+                  >&#9829;</button>
               </div>
             );
           })}
