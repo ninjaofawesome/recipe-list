@@ -37,7 +37,9 @@ class Nav extends Component {
         <button className="recipe-list__navbar-menu-button" onClick={this.toggleMenu} >menu</button>
         <ul className="recipe-list__navbar-list">
           <li className="recipe-list__navbar-list-item">Favorites</li>
-          <li className="recipe-list__navbar-list-item">Most Recent</li>
+          <li className="recipe-list__navbar-list-item">
+            <button className="recipe-list__navbar-list-button" onClick={this.props.arrangeCards} >Most Recent</button>
+          </li>
         </ul>
       </nav>
     );

@@ -1,12 +1,12 @@
 .recipe-list {
 
-  &__navbar-menu-button {
+  &__navbar-menu-button,
+  &__navbar-list-button {
     @include navType($red);
     font-weight: 700;
     font-size: rem-calc(14);
     background-color: $white;
     border-radius: 0;
-    border: rem-calc(1) solid $border-gray;
 
     &:active,
     &:focus,
@@ -14,5 +14,14 @@
       text-decoration: none;
       outline: 0;
     }
+  }
+
+  &__navbar-list-button {
+    border: 0;
+    cursor: pointer;
+  }
+
+  &__navbar-menu-button {
+    border: rem-calc(1) solid $border-gray;
   }
 }

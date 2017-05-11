@@ -11,6 +11,7 @@ class App extends Component {
     super();
 
     this.renderCardData = this.renderCardData.bind(this);
+    this.arrangeCards = this.arrangeCards.bind(this);
     this.state = {recipeCard:[]};
   }
 
@@ -56,7 +57,21 @@ class App extends Component {
     });
 
     return cardData;
+  }
 
+  arrangeCards(){
+    const allCards = this.state.recipeCard;
+    allCards.forEach(function(element) {
+      const pubDate = element.published_date;
+      const newDate = Date.parse(pubDate);
+      element.parseDate = newDate;
+    });
+
+    allCards.sort(function(a, b){
+      return a.parseDate - b.parseDate;
+    })
+
+    this.setState({recipeCards:allCards})
   }
 
   render() {
@@ -65,7 +80,10 @@ class App extends Component {
 
     return (
       <div className="recipe-list">
-        <Nav cardInfo={cardUpdate} />
+        <Nav
+          cardInfo={cardUpdate}
+          arrangeCards={this.arrangeCards}
+        />
         <List cardInfo={cardUpdate} />
       </div>
     );
