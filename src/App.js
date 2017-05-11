@@ -4,6 +4,7 @@ import List from '../src/components/list/list';
 import { cardFormat } from '../src/utils/card_format';
 import axios from 'axios';
 import $ from 'jquery';
+import { get } from 'lodash';
 
 class App extends Component {
 
@@ -34,7 +35,7 @@ class App extends Component {
   }
 
   arrangeCards(){
-    const allCards = this.state.recipeCard;
+    const allCards = get(this.state, 'recipeCard');
     allCards.forEach(function(element) {
       const pubDate = element.published_date;
       const newDate = Date.parse(pubDate);
@@ -56,8 +57,8 @@ class App extends Component {
   }
 
   favoriteList(){
-    const favorites = this.state.favorites;
-    const cardState = this.state.recipeCard;
+    const favorites = get(this.state, 'favorites');
+    const cardState = get(this.state, 'recipeCard');
     const cards = cardFormat(cardState);
 
     const onlyInA = cards.filter(function(current){
@@ -78,7 +79,7 @@ class App extends Component {
   }
 
   render() {
-    const cardState = this.state.recipeCard;
+    const cardState = get(this.state, 'recipeCard');
     const cardUpdate = cardFormat(cardState);
 
     return (
