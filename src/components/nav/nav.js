@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { get } from 'lodash';
 
 class Nav extends Component {
 
@@ -6,6 +7,7 @@ class Nav extends Component {
     super(props);
     this.toggleMenu = this.toggleMenu.bind(this);
     this.state = { "active" : false };
+    this.listItems = this.listItems.bind(this);
   }
 
   componentDidMount() {
@@ -30,17 +32,21 @@ class Nav extends Component {
     }
   }
 
+  listItem(items) {
+    return items.map((item, i) => {
+      <li className="recipe-list__navbar-list-item" key={`listItem-${i}`}>{item.text}</li>;
+    });
+  }
+
   render() {
+    const menuItems = get(this.props, 'menu.items');
+
     return (
       <nav className="recipe-list__navbar">
         <h1 className="recipe-list__navbar-title">Recipe List</h1>
         <button className="recipe-list__navbar-menu-button" onClick={this.toggleMenu} >menu</button>
         <ul className="recipe-list__navbar-list">
-          <li className="recipe-list__navbar-list-item"><button className="recipe-list__navbar-list-button" onClick={this.props.favoriteCards} >Favorites</button>
-          </li>
-          <li className="recipe-list__navbar-list-item">
-            <button className="recipe-list__navbar-list-button" onClick={this.props.arrangeCards} >Most Recent</button>
-          </li>
+          {this.listItem(menuItems)}
         </ul>
       </nav>
     );
