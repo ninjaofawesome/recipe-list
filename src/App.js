@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Nav from '../src/components/nav/nav';
+import NavContainer from '../src/containers/nav_container';
 import List from '../src/components/list/list';
 import { cardFormat } from '../src/utils/card_format';
 import axios from 'axios';
@@ -83,11 +83,7 @@ class App extends Component {
 
     return (
       <div className="recipe-list">
-        <Nav
-          cardInfo={cardUpdate}
-          arrangeCards={this.arrangeCards}
-          favoriteCards={this.favoriteList}
-        />
+        <NavContainer />
         <List
           cardInfo={cardUpdate}
           favoriteCards={this.favoriteCards}
