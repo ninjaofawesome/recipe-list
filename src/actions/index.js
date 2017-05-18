@@ -1,5 +1,5 @@
 //togle menu active/inactive
-function toggleMenu(active) {
+export function toggleMenu(active) {
   return {
     type: 'TOGGLE_MENU',
     active
@@ -8,7 +8,7 @@ function toggleMenu(active) {
 
 //load data to list
 
-function loadData(active, items) {
+export function loadData(active, items) {
   return {
     type: 'LOAD_DATA',
     active,

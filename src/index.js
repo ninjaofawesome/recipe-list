@@ -3,11 +3,13 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from '../src/reducers/index';
+import defaultData from '../src/data/nav_menu.json';
 import App from './App';
 import './index.css';
 
 const store = createStore(
   rootReducer,
+  defaultData,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
