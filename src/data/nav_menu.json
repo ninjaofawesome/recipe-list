@@ -1,0 +1,15 @@
+{
+  "menu": {
+    "active": false,
+    "items": [
+      {
+        "id": 0,
+        "text": "most recent"
+      },
+      {
+        "id": 1,
+        "text": "favorites"
+      }
+    ]
+  }
+}
